@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="tic tac toe.png">
+<link rel="icon" type="image/png" sizes="32x32" href="tic tac toe.png">
+<link rel="icon" type="image/png" sizes="16x16" href="tic tac toe.png">
+<meta name="viewport" 
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<style>
+    body {
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    background-color:#111;
+}
+
+.nav {
+position: absolute; 
+left: 0;
+background-color: #111;
+border-bottom: 1px solid #d3d3d3;
+color:#fff;
+width:100%;
+padding: 5px;
+font-size: 30px;
+text-align: center;
+letter-spacing: 3px;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+.buttons_con {
+display: flex;
+position: relative; top:200px;
+}
+
+
+button {
+  background-color: #2f80ed;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus {
+  background-color: #1366d6;
+}
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
+
+
+.watermark_con {
+position: relative; top:260px;
+}
+
+.watermark {
+  font-size: 18px;
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  font-family: "Sacramento", cursive;
+  text-align: center;
+}
+
+.ads_con {
+    position: absolute; bottom:0; left:0;
+    height: 70px;
+    width:100%;
+    border:1px solid #d3d3d3;
+    background-color: #f2f2f2;
+    display:flex;
+    color:#111;
+}
+
+.ads_con p 
+{
+    position: absolute; top:0; left:10px;
+}
+
+.ads_con img {
+    position: relative; top:0; left:40px;
+}
+
+.ads_con h5 {
+  position: absolute; left:110px; top:-15px;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.ads_con h6 {
+    position: absolute; left: 240px; bottom:-30px; 
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width:311px) { 
+    .ads_con h6 {
+    display:none;
+}
+}
+
+</style>
+<body>
+    <div class="nav">Tic Tac Toe</div>
+
+    <div class="buttons_con">
+    <button onclick="window.location.href='Tic Tac Toe computer.html'">Computer</button>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="window.location.href='Tic Tac Toe friend.html'">Friend</button>
+    </div>
+ 
+    <div class="watermark_con">
+    <p class="watermark">Powered By <br> Aestas Cyber Community</p>
+    </div>
+
+    <a href="https://ekaro.in/enkr20230127s20231847">
+    <div class="ads_con">
+    <p>Ad</p> 
+    <img src="https://img.tatacliq.com/images/i6/437Wx649H/MP000000006004029_437Wx649H_20200802131231.jpeg">
+    <h5>Brand: Portronics</h5>
+    <h6>(43% off)</h6>
+    </div>
+    </a>
+</body>
+</html>

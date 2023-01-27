@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Computer</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <link rel="apple-touch-icon" sizes="180x180" href="tic tac toe.png">
+<link rel="icon" type="image/png" sizes="32x32" href="tic tac toe.png">
+<link rel="icon" type="image/png" sizes="16x16" href="tic tac toe.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+ 
+body {
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.nav {
+position: absolute; 
+left: 0;
+background-color: #111;
+color:#fff;
+width:100%;
+padding: 5px;
+font-size: 30px;
+text-align: center;
+letter-spacing: 3px;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.nav i {
+    position: absolute; left:10px; margin-top: 4px;
+}
+
+section {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.game--container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 10px auto;
+    background-color: #11213a;
+    color: #ed8813;
+}
+
+.cell {
+    font-family: "Permanent Marker", cursive;
+    width: 100px;
+    height: 100px;
+    box-shadow: 2px 2px 2px 2px #ed8813;
+    border: 2px solid #ed8813;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    cursor: pointer;
+    line-height: 100px;
+    font-size: 60px;
+}
+
+.game--status {
+    font-size: 30px;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+    margin: 20px auto;
+}
+
+
+
+#restart {
+  margin-top:5px;
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #2f80ed;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  height: 45px;
+  letter-spacing: normal;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+#restart:hover {
+  background-color: #1366d6;
+  box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+#restart:hover:after {
+  opacity: .5;
+}
+
+#restart:active {
+  box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+#restart:active:after {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  #restart {
+    padding: 14px 22px;
+    width: 176px;
+  }
+}
+
+
+.ads_con {
+    position: absolute; bottom:-8px;
+    height: 70px;
+    width:105%;
+    border:1px solid #d3d3d3;
+    background-color: #fff;
+    display:flex;
+}
+
+.ad_img {
+height: 70px;
+width:85px;
+}
+
+@media screen and (min-width:450px) { 
+.ads_con{
+    display:none;
+}
+}
+</style>
+<body>
+    <div class="nav">
+        <i class="fa fa-arrow-left" onclick="window.location.href='index.html'"></i>
+        Tic Tac Toe</div>
+        <section>
+            <div class="game--container">
+                <div data-cell-index="0" class="cell"></div>
+                <div data-cell-index="1" class="cell"></div>
+                <div data-cell-index="2" class="cell"></div>
+                <div data-cell-index="3" class="cell"></div>
+                <div data-cell-index="4" class="cell"></div>
+                <div data-cell-index="5" class="cell"></div>
+                <div data-cell-index="6" class="cell"></div>
+                <div data-cell-index="7" class="cell"></div>
+                <div data-cell-index="8" class="cell"></div>
+            </div>
+            <h2 class="game--status"></h2>
+            <button id="restart">Restart Game</button>
+        </section>
+      <div class="ads_con">
+        &nbsp;&nbsp;&nbsp; <p>Ad</p> &nbsp;
+<a href="https://ekaro.in/enkr20230127s20233558"><img src="https://assets.ajio.com/medias/sys_master/root/20201017/tmqp/5f8a0e37f997dd8c836afa34/-473Wx593H-461493564-yellow-MODEL.jpg" class="ad_img"></a>
+<a href="https://ekaro.in/enkr20230127s20233552"><img src="https://assets.ajio.com/medias/sys_master/root/20200910/ghzw/5f5a5ebf7cdb8c76629898f7/-473Wx593H-461403116-pink-MODEL.jpg" class="ad_img"></a>
+<a href="https://ekaro.in/enkr20230127s20233573"><img src="https://assets.ajio.com/medias/sys_master/root/h02/hb2/16380110667806/-473Wx593H-461160914-black-MODEL.jpg" class="ad_img"></a>
+<a href="https://ekaro.in/enkr20230127s20233583"><img src="https://assets.ajio.com/medias/sys_master/root/20200919/2FK6/5f650811f997dd8c83465ec4/-473Wx593H-461418707-grey-MODEL.jpg" class="ad_img"></a>
+</div>
+
+
+<script>
+    const statusDisplay = document.querySelector('.game--status');
+
+let gameActive = true;
+let currentPlayer = "X";
+let gameState = ["", "", "", "", "", "", "", "", ""];
+
+const winningMessage = () => `Player ${currentPlayer} has won!`;
+const drawMessage = () => `Game ended in a draw!`;
+const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+
+statusDisplay.innerHTML = currentPlayerTurn();
+
+const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
+
+function handleCellPlayed(clickedCell, clickedCellIndex) {
+    gameState[clickedCellIndex] = currentPlayer;
+    clickedCell.innerHTML = currentPlayer;
+}
+
+function handlePlayerChange() {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    statusDisplay.innerHTML = currentPlayerTurn();
+}
+
+function handleResultValidation() {
+    let roundWon = false;
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningConditions[i];
+        let a = gameState[winCondition[0]];
+        let b = gameState[winCondition[1]];
+        let c = gameState[winCondition[2]];
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c) {
+            roundWon = true;
+            break
+        }
+    }
+
+    if (roundWon) {
+        statusDisplay.innerHTML = winningMessage();
+        gameActive = false;
+        return;
+    }
+
+    let roundDraw = !gameState.includes("");
+    if (roundDraw) {
+        statusDisplay.innerHTML = drawMessage();
+        gameActive = false;
+        return;
+    }
+
+    handlePlayerChange();
+}
+
+function handleCellClick(clickedCellEvent) {
+    const clickedCell = clickedCellEvent.target;
+    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+
+    if (gameState[clickedCellIndex] !== "" || !gameActive) {
+        return;
+    }
+
+    handleCellPlayed(clickedCell, clickedCellIndex);
+    handleResultValidation();
+}
+
+function handleRestartGame() {
+    gameActive = true;
+    currentPlayer = "X";
+    gameState = ["", "", "", "", "", "", "", "", ""];
+    statusDisplay.innerHTML = currentPlayerTurn();
+    document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+}
+
+
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+document.querySelector('#restart').addEventListener('click', handleRestartGame);
+</script>
+</body>
+</html>

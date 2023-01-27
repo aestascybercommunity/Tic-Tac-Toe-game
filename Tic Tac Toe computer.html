@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Computer</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <link rel="apple-touch-icon" sizes="180x180" href="tic tac toe.png">
+<link rel="icon" type="image/png" sizes="32x32" href="tic tac toe.png">
+<link rel="icon" type="image/png" sizes="16x16" href="tic tac toe.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+ 
+body {
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.nav {
+position: absolute; 
+left: 0;
+background-color: #111;
+color:#fff;
+width:100%;
+padding: 5px;
+font-size: 30px;
+text-align: center;
+letter-spacing: 3px;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.nav i {
+    position: absolute; left:10px; margin-top: 4px;
+}
+.container {
+    position: absolute; top:10%;
+    transform: translate(-0%, 10%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+table {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid black;
+}
+#restart {
+  margin-top:5px;
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #2f80ed;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  height: 45px;
+  letter-spacing: normal;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+#restart:hover {
+  background-color: #1366d6;
+  box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+#restart:hover:after {
+  opacity: .5;
+}
+
+#restart:active {
+  box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+#restart:active:after {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  #restart {
+    padding: 14px 22px;
+    width: 176px;
+  }
+}
+
+#winner {
+    position: relative;
+    font-size: 25px;
+}
+
+
+.ads_con {
+    position: absolute; bottom:-8px;
+    height: 70px;
+    width:105%;
+    border:1px solid #d3d3d3;
+    background-color: #f2f2f2;
+    display:flex;
+}
+
+.ad_img {
+height: 70px;
+width:85px;
+}
+
+@media screen and (min-width:450px) { 
+.ads_con{
+    display:none;
+}
+}
+</style>
+<body>
+    <div class="nav">
+        <i class="fa fa-arrow-left" onclick="window.location.href='index.html'"></i>
+        Tic Tac Toe</div>
+
+    <div class="container">
+    <table id="board">
+        <tr>
+          <td data-cell-index="0"></td>
+          <td data-cell-index="1"></td>
+          <td data-cell-index="2"></td>
+        </tr>
+        <tr>
+          <td data-cell-index="3"></td>
+          <td data-cell-index="4"></td>
+          <td data-cell-index="5"></td>
+        </tr>
+        <tr>
+          <td data-cell-index="6"></td>
+          <td data-cell-index="7"></td>
+          <td data-cell-index="8"></td>
+        </tr>
+    </table>
+      <p id="winner"></p>
+      <button id="restart" onClick="restart()">Restart</button>
+      </div>
+      
+      <div class="ads_con">
+        &nbsp;&nbsp;&nbsp; <p>Ad</p> &nbsp;
+<a href="https://ekaro.in/enkr20230126s20225761"><img src="https://assets.ajio.com/medias/sys_master/root/20200923/HGOD/5f6b6c10aeb269d563c9226b/-473Wx593H-460526991-pink-MODEL.jpg" class="ad_img"></a>
+<a href="https://ekaro.in/enkr20230126s20225766"><img src="https://assets.ajio.com/medias/sys_master/root/20200728/8rL7/5f1f1e92aeb269f5fee6ce2b/-473Wx593H-460604034-pink-MODEL.jpg" class="ad_img"></a>
+<a href="https://ekaro.in/enkr20230126s20225771"><img src="https://assets.ajio.com/medias/sys_master/root/20200902/OYNw/5f4f6678aeb269ef8eb7773e/-473Wx593H-461388818-pink-MODEL.jpg" class="ad_img"></a>
+<a href="https://ekaro.in/enkr20230126s20225790"><img src="https://assets.ajio.com/medias/sys_master/root/20200728/xL2G/5f1f2f2daeb269f5fee714bb/-473Wx593H-460604027-black-MODEL.jpg" class="ad_img"></a>
+</div>
+<script>
+var cells = document.querySelectorAll("#board td");
+var player = "X";
+var gameOver = false;
+var board = [0,0,0,0,0,0,0,0,0];
+var ai = "O";
+var human = "X";
+
+//Check for win
+function checkForWin(player) {
+    if (
+    (board[0] == player && board[1] == player && board[2] == player) ||
+    (board[3] == player && board[4] == player && board[5] == player) ||
+    (board[6] == player && board[7] == player && board[8] == player) ||
+    (board[0] == player && board[3] == player && board[6] == player) ||
+    (board[1] == player && board[4] == player && board[7] == player) ||
+    (board[2] == player && board[5] == player && board[8] == player) ||
+    (board[0] == player && board[4] == player && board[8] == player) ||
+    (board[2] == player && board[4] == player && board[6] == player)
+    ) {
+    return true;
+    }
+    return false;
+}
+
+//minimax function
+function minimax(newBoard, player) {
+    var winner = checkForWin(human);
+    if (winner) {
+        return {score: -10};
+    }
+    var winner = checkForWin(ai);
+    if (winner) {
+        return {score: 10};
+    }
+    var draw = !newBoard.includes(0);
+    if (draw) {
+        return {score: 0};
+    }
+    var moves = [];
+    for (var i = 0; i < newBoard.length; i++) {
+        if (newBoard[i] == 0) {
+            var move = {};
+            move.index = i;
+            newBoard[i] = player;
+            if (player == ai) {
+                var result = minimax(newBoard, human);
+                move.score = result.score;
+            }
+            else {
+                var result = minimax(newBoard, ai);
+                move.score = result.score;
+            }
+            newBoard[i] = 0;
+            moves.push(move);
+        }
+    }
+
+    var bestMove;
+    if(player === ai) {
+        var bestScore = -10000;
+        for(var i = 0; i < moves.length; i++) {
+            if(moves[i].score > bestScore) {
+                bestScore = moves[i].score;
+                bestMove = i;
+            }
+        }
+    } else {
+        var bestScore = 10000;
+        for(var i = 0; i < moves.length; i++) {
+            if(moves[i].score < bestScore) {
+                bestScore = moves[i].score;
+                bestMove = i;
+            }
+        }
+    }
+    return moves[bestMove];
+}
+
+for (var i = 0; i < cells.length; i++) {
+    cells[i].addEventListener("click", function() {
+        if (!gameOver) {
+            if(this.innerHTML === "") {
+                this.innerHTML = human;
+                board[this.getAttribute("data-cell-index")] = human;
+                if (!checkForWin(human) && !board.includes(0)) {
+                    gameOver = true;
+                    document.getElementById("winner").innerHTML = "It's a tie!";
+                } else if (checkForWin(human)) {
+                    gameOver = true;
+                    document.getElementById("winner").innerHTML = "You win!";
+                } else {
+                    for (var j = 0; j < cells.length; j++) {
+                        cells[j].style.pointerEvents = "none";
+                    }
+                    setTimeout(function(){
+                        var bestMove = minimax(board, ai);
+                        board[bestMove.index] = ai;
+                        cells[bestMove.index].innerHTML = ai;
+                        for (var j = 0; j < cells.length; j++) {
+                            cells[j].style.pointerEvents = "auto";
+                        }
+                        if (checkForWin(ai)) {
+                            gameOver = true;
+                            document.getElementById("winner").innerHTML = "Computer win!"; 
+                        }
+                    }, 500);
+                }
+            }
+        }
+    });
+}
+
+
+document.getElementById("restart").addEventListener("click", function(){
+    restart();
+});
+
+function restart() {
+    window.location.reload();
+}
+
+
+</script>
+  </body>
+  </html>
