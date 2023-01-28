@@ -13,6 +13,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="tic tac toe.png">
 <link rel="icon" type="image/png" sizes="16x16" href="tic tac toe.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <style>
  
@@ -39,9 +40,30 @@ letter-spacing: 3px;
 font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.nav i {
+.nav .fa-arrow-left {
     position: absolute; left:10px; margin-top: 4px;
 }
+#speaker {
+  color: cyan;
+  cursor: pointer;
+  position: absolute; right:25px;
+  margin-top: 4px;
+  animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+
 .container {
     position: absolute; top:10%;
     transform: translate(-0%, 10%);
@@ -152,7 +174,10 @@ width:85px;
 <body>
     <div class="nav">
         <i class="fa fa-arrow-left" onclick="window.location.href='index.html'"></i>
-        Tic Tac Toe</div>
+        Tic Tac Toe
+        <i class="fas fa-volume-mute" id="speaker" onclick="toggleAudio()"></i>
+        <audio id="audio" src="Background-music Luke-Bergs-Summer-Groove.mp3"></audio> 
+    </div>
 
     <div class="container">
     <table id="board">
@@ -176,13 +201,35 @@ width:85px;
       <button id="restart" onClick="restart()">Restart</button>
       </div>
       
-      <div class="ads_con">
+    <!---  <div class="ads_con">
         &nbsp;&nbsp;&nbsp; <p>Ad</p> &nbsp;
 <a href="https://ekaro.in/enkr20230126s20225761"><img src="https://assets.ajio.com/medias/sys_master/root/20200923/HGOD/5f6b6c10aeb269d563c9226b/-473Wx593H-460526991-pink-MODEL.jpg" class="ad_img"></a>
 <a href="https://ekaro.in/enkr20230126s20225766"><img src="https://assets.ajio.com/medias/sys_master/root/20200728/8rL7/5f1f1e92aeb269f5fee6ce2b/-473Wx593H-460604034-pink-MODEL.jpg" class="ad_img"></a>
 <a href="https://ekaro.in/enkr20230126s20225771"><img src="https://assets.ajio.com/medias/sys_master/root/20200902/OYNw/5f4f6678aeb269ef8eb7773e/-473Wx593H-461388818-pink-MODEL.jpg" class="ad_img"></a>
 <a href="https://ekaro.in/enkr20230126s20225790"><img src="https://assets.ajio.com/medias/sys_master/root/20200728/xL2G/5f1f2f2daeb269f5fee714bb/-473Wx593H-460604027-black-MODEL.jpg" class="ad_img"></a>
-</div>
+</div>--->
+
+
+
+<script>
+var audio = document.getElementById("audio");
+var speaker = document.getElementById("speaker");
+
+audio.loop = true;
+
+function toggleAudio() {
+  if (audio.paused) {
+    audio.play();
+    speaker.classList.add("fa-volume-up");
+    speaker.classList.remove("fa-volume-mute");
+  } else {
+    audio.pause();
+    speaker.classList.add("fa-volume-mute");
+    speaker.classList.remove("fa-volume-up");
+  }
+}  
+</script>
+
 <script>
 var cells = document.querySelectorAll("#board td");
 var player = "X";

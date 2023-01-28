@@ -13,6 +13,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="tic tac toe.png">
 <link rel="icon" type="image/png" sizes="16x16" href="tic tac toe.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 </head>
 <style>
  
@@ -39,8 +41,27 @@ letter-spacing: 3px;
 font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.nav i {
+.nav .fa-arrow-left {
     position: absolute; left:10px; margin-top: 4px;
+}
+#speaker {
+  color: cyan;
+  cursor: pointer;
+  position: absolute; right:25px;
+  margin-top: 4px;
+  animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 section {
@@ -160,11 +181,15 @@ width:85px;
     display:none;
 }
 }
+
 </style>
 <body>
     <div class="nav">
         <i class="fa fa-arrow-left" onclick="window.location.href='index.html'"></i>
-        Tic Tac Toe</div>
+        Tic Tac Toe
+        <i class="fas fa-volume-mute" id="speaker" onclick="toggleAudio()"></i>
+        <audio id="audio" src="Background-music Luke-Bergs-Summer-Groove.mp3"></audio> 
+    </div>
         <section>
             <div class="game--container">
                 <div data-cell-index="0" class="cell"></div>
@@ -180,14 +205,32 @@ width:85px;
             <h2 class="game--status"></h2>
             <button id="restart">Restart Game</button>
         </section>
-      <div class="ads_con">
+      <!----<div class="ads_con">
         &nbsp;&nbsp;&nbsp; <p>Ad</p> &nbsp;
 <a href="https://ekaro.in/enkr20230127s20233558"><img src="https://assets.ajio.com/medias/sys_master/root/20201017/tmqp/5f8a0e37f997dd8c836afa34/-473Wx593H-461493564-yellow-MODEL.jpg" class="ad_img"></a>
 <a href="https://ekaro.in/enkr20230127s20233552"><img src="https://assets.ajio.com/medias/sys_master/root/20200910/ghzw/5f5a5ebf7cdb8c76629898f7/-473Wx593H-461403116-pink-MODEL.jpg" class="ad_img"></a>
 <a href="https://ekaro.in/enkr20230127s20233573"><img src="https://assets.ajio.com/medias/sys_master/root/h02/hb2/16380110667806/-473Wx593H-461160914-black-MODEL.jpg" class="ad_img"></a>
 <a href="https://ekaro.in/enkr20230127s20233583"><img src="https://assets.ajio.com/medias/sys_master/root/20200919/2FK6/5f650811f997dd8c83465ec4/-473Wx593H-461418707-grey-MODEL.jpg" class="ad_img"></a>
 </div>
+--->
+<script>
+    var audio = document.getElementById("audio");
+var speaker = document.getElementById("speaker");
 
+audio.loop = true;
+
+function toggleAudio() {
+  if (audio.paused) {
+    audio.play();
+    speaker.classList.add("fa-volume-up");
+    speaker.classList.remove("fa-volume-mute");
+  } else {
+    audio.pause();
+    speaker.classList.add("fa-volume-mute");
+    speaker.classList.remove("fa-volume-up");
+  }
+}  
+</script>
 
 <script>
     const statusDisplay = document.querySelector('.game--status');
